@@ -1014,12 +1014,13 @@ class Submarine:
     depth = 0
 
     def move(self, command: Move, value: int):
-        if command == Submarine.Move.forward:
-            self.horizontal_position += value
-        elif command == Submarine.Move.up:
-            self.depth -= value
-        elif command == Submarine.Move.down:
-            self.depth += value
+        match command:
+            case Submarine.Move.forward:
+                self.horizontal_position += value
+            case Submarine.Move.up:
+                self.depth -= value
+            case Submarine.Move.down:
+                self.depth += value
 
         return self
 
